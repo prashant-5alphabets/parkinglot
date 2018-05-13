@@ -18,6 +18,9 @@ class TestSlot(unittest.TestCase):
     def test_slot_number(self):
         self.assertEqual(self.slot.get_slot_number(), 1)
 
+    def test_get_car_when_empty(self):
+        reg_num, color = self.slot.get_car_parked()
+        self.assertEqual((reg_num, color), (None, None))
 
 if __name__ == '__main__':
     unittest.main()
