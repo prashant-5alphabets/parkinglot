@@ -18,6 +18,8 @@ class Slot:
         print "Allocated slot number: " + str(self.get_slot_number())
 
     def get_car_parked(self):
+        if self.empty:
+            return None, None
         return self.car.get_registration_number(), self.car.get_color()
 
     def is_empty(self):
