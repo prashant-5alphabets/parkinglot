@@ -1,25 +1,27 @@
+from src.car import Car
+
 class Slot:
     def __init__(self, number):
         self.number = number
-        self.is_empty = True
-        self.car_color = None
-        self.car_registration_number = None
+        self.empty = True
+        self.car = None
 
     def make_it_empty(self):
-        self.is_empty = True
-        self.car_color = None
-        self.car_registration_number = None
+        self.empty = True
+        del self.car
+        self.car = None
+        print "Slot number " + str(self.number) + " is free"
 
-    def put_car(self, color, registration_number):
-        self.car_registration_number = registration_number
-        self.car_color = color
-        self.is_empty = False
+    def put_car(self, registration_number, color):
+        self.car = Car(registration_number, color)
+        self.empty = False
+        print "Allocated slot number: " + str(self.get_slot_number())
 
     def get_car_parked(self):
-        return self.car_registration_number, self.car_color
+        return self.car.get_registration_number(), self.car.get_color()
 
     def is_empty(self):
-        return self.is_empty
+        return self.empty
 
     def get_slot_number(self):
         return self.number
