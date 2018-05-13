@@ -15,3 +15,12 @@ General things
 --------------
     Program will exit automatically if given file ends (in case of file input)
     Pragram will exit if `exit` command is given (in both cases)
+
+To run
+------
+    cd to project path
+    Run command `./parking_lot` to execute with command line input mode
+    Run command `./parking_lot ./test_input.txt` to run with test input file added
+    Run command `./parking_lot path_to_file` to run with any input file
+
+
