@@ -1,14 +1,16 @@
 from src.parking_lot import ParkingLot
 import sys
 
+
 class Init:
+
     @staticmethod
     def take_input(input_array, iteration):
-        if input_array == None:
-            input = raw_input()
+        if input_array is None:
+            input_string = raw_input()
         else:
-            input = input_array[iteration].replace('\n', '') if len(input_array) > iteration else "exit"
-        return input
+            input_string = input_array[iteration].replace('\n', '') if len(input_array) > iteration else "exit"
+        return input_string
 
     @staticmethod
     def return_file_if_given(args):
@@ -36,11 +38,14 @@ class Init:
                 elif input_array[0] == 'status':
                     parking_lot.show_status()
                 elif input_array[0] == 'registration_numbers_for_cars_with_colour':
-                    parking_lot.get_reg_of_cars_of_particular_colors(input_array[1])
+                    reg_nums = parking_lot.get_reg_of_cars_of_particular_colors(input_array[1])
+                    print ", ".join(reg_nums)
                 elif input_array[0] == 'slot_numbers_for_cars_with_colour':
-                    parking_lot.get_slots_by_color(input_array[1])
+                    slots = parking_lot.get_slots_by_color(input_array[1])
+                    print ", ".join(slots)
                 elif input_array[0] == 'slot_number_for_registration_number':
-                    parking_lot.get_slot_by_reg_number(input_array[1])
+                    slot = parking_lot.get_slot_by_reg_number(input_array[1])
+                    print slot
                 elif input_array[0] == 'exit':
                     break
                 else:
@@ -49,6 +54,7 @@ class Init:
             except Exception as e:
                 print e
                 print "some error occured !!!"
+
 
 if __name__ == '__main__':
     init = Init()

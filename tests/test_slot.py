@@ -1,7 +1,9 @@
 import unittest
 from src.slot import Slot
 
+
 class TestSlot(unittest.TestCase):
+
     def setUp(self):
         self.slot = Slot(1)
 
@@ -21,6 +23,7 @@ class TestSlot(unittest.TestCase):
     def test_get_car_when_empty(self):
         reg_num, color = self.slot.get_car_parked()
         self.assertEqual((reg_num, color), (None, None))
+
 
 if __name__ == '__main__':
     unittest.main()

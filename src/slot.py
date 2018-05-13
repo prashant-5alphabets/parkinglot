@@ -1,6 +1,8 @@
 from src.car import Car
 
+
 class Slot:
+
     def __init__(self, number):
         self.number = number
         self.empty = True

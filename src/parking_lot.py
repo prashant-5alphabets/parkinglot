@@ -1,13 +1,15 @@
 from src.slot import Slot
 
+
 class ParkingLot:
+
     def __init__(self):
-        self.slot_count = 0
-        self.parked_cars = {}
         self.slots = []
 
+    def get_slots(self):
+        return self.slots
+
     def create_par_king_lot(self, slots):
-        self.slot_count = slots
         self.slots = []
         for i in range(slots):
             self.slots.append(Slot(i + 1))
@@ -32,16 +34,15 @@ class ParkingLot:
             reg_num, _color = slot.get_car_parked()
             if _color == color:
                 reg_nums.append(reg_num)
-        print ", ".join(reg_nums)
+        return reg_nums
 
     # this function will returns Slot number in which a car with a given registration number is parked.
     def get_slot_by_reg_number(self, registration_number):
         for slot in self.slots:
             reg_num, _color = slot.get_car_parked()
             if reg_num == registration_number:
-                print slot.get_slot_number()
-                return
-        print "Not found"
+                return slot.get_slot_number()
+        return "Not found"
 
     #this function will return Slot numbers of all slots where a car of a particular colour is parked.
     def get_slots_by_color(self, color):
@@ -50,7 +51,7 @@ class ParkingLot:
             reg_num, _color = slot.get_car_parked()
             if _color == color:
                 slots.append(str(slot.get_slot_number()))
-        print ", ".join(slots)
+        return slots
 
     def show_status(self):
         print "Slot No. Registration No Colour"
